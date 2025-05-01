@@ -5,9 +5,9 @@ import { useLayoutConfigStore } from "./modules/useConfigStore";
 
 export function useStores() {
   return {
-    auth: useAuthStore,
-    body: useBodyStore,
-    breadcrumbs: useBreadcrumbsStore,
-    config: useLayoutConfigStore,
+    authStore: useAuthStore(),
+    bodyStore: useBodyStore(),
+    breadcrumbsStore: useBreadcrumbsStore(),
+    configStore: useLayoutConfigStore(),
   };
 }

@@ -87,7 +87,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import KTSearch from "@/layout/header/partials/Search.vue";
+// import KTSearch from "@/layout/header/partials/Search.vue";
 // import KTNotificationsMenu from "@/layout/header/partials/NotificationsMenu.vue";
 // import KTQuickLinksMenu from "@/layout/header/partials/QuickLinksMenu.vue";
 import KTUserMenu from "@/layout/header/partials/UserMenu.vue";
@@ -95,7 +95,7 @@ import KTUserMenu from "@/layout/header/partials/UserMenu.vue";
 export default defineComponent({
   name: "header-topbar",
   components: {
-    KTSearch,
+    // KTSearch,
     // KTNotificationsMenu,
     // KTQuickLinksMenu,
     KTUserMenu,

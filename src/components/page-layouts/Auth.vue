@@ -33,22 +33,21 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, onUnmounted } from "vue";
-import { useStore } from "vuex";
-import { Actions } from "@/store/enums/StoreEnums";
 import { getIllustrationsPath } from "@/core/helpers/assets";
+import { useBodyStore } from "@/store/modules/useBodyStore";
 
 export default defineComponent({
   name: "auth-page-layout",
   components: {},
   setup() {
-    const store = useStore();
+    const store = useBodyStore();
 
     onMounted(() => {
-      store.dispatch(Actions.ADD_BODY_CLASSNAME, "bg-body");
+      store.addBodyClassName("bg-body");
     });
 
     onUnmounted(() => {
-      store.dispatch(Actions.REMOVE_BODY_CLASSNAME, "bg-body");
+      store.removeBodyClassName("bg-body");
     });
 
     return {

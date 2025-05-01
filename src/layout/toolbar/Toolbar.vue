@@ -75,23 +75,9 @@
             </span>
             Filter
           </a>
-
-          <Dropdown1></Dropdown1>
           <!--end::Menu-->
         </div>
         <!--end::Wrapper-->
-
-        <!--begin::Button-->
-        <a
-          href="#"
-          class="btn btn-sm btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#kt_modal_create_app"
-          id="kt_toolbar_primary_button"
-        >
-          Create
-        </a>
-        <!--end::Button-->
       </div>
       <!--end::Actions-->
     </div>
@@ -102,7 +88,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Dropdown1 from "@/components/dropdown/Dropdown1.vue";
 import { toolbarWidthFluid } from "@/core/helpers/config";
 
 export default defineComponent({
@@ -110,9 +95,6 @@ export default defineComponent({
   props: {
     breadcrumbs: Array,
     title: String,
-  },
-  components: {
-    Dropdown1,
   },
   setup() {
     return {

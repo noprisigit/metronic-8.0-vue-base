@@ -6,7 +6,7 @@ import App from "./App.vue";
 TIP: To get started with clean router change path to @/router/clean.ts.
  */
 import router from "./router/index";
-import store from "./store";
+// import store from "./store";
 import ElementPlus from "element-plus";
 import i18n from "@/core/plugins/i18n";
 
@@ -20,7 +20,7 @@ import { InstallOptions } from "element-plus/lib/utils/config";
 const app = createApp(App);
 
 app.use(createPinia());
-app.use(store);
+// app.use(store);
 app.use(router);
 app.use(ElementPlus, {} as InstallOptions);
 

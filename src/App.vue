@@ -4,9 +4,7 @@
 
 <script lang="ts">
 import { defineComponent, nextTick, onMounted } from "vue";
-import { Mutations } from "@/store/enums/StoreEnums";
 import { initializeComponents } from "@/core/plugins/keenthemes";
-import { useStores } from "./store";
 import { useLayoutConfigStore } from "./store/modules/useConfigStore";
 
 export default defineComponent({

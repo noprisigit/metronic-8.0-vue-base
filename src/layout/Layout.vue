@@ -45,13 +45,10 @@
   <!-- end:: Body -->
   <KTScrollTop />
   <KTUserMenu />
-  <KTCreateApp />
-  <KTInviteFriendsModal />
 </template>
 
 <script lang="ts">
 import { defineComponent, computed, onMounted, watch, nextTick } from "vue";
-import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
 import KTAside from "@/layout/aside/Aside.vue";
 import KTHeader from "@/layout/header/Header.vue";
@@ -61,9 +58,6 @@ import KTToolbar from "@/layout/toolbar/Toolbar.vue";
 import KTScrollTop from "@/layout/extras/ScrollTop.vue";
 import KTUserMenu from "@/layout/header/partials/ActivityDrawer.vue";
 import KTLoader from "@/components/Loader.vue";
-import KTCreateApp from "@/components/modals/wizards/CreateAppModal.vue";
-import KTInviteFriendsModal from "@/components/modals/general/InviteFriendsModal.vue";
-import { Actions } from "@/store/enums/StoreEnums";
 import { MenuComponent } from "@/assets/ts/components";
 import { removeModalBackdrop } from "@/core/helpers/dom";
 import { reinitializeComponents } from "@/core/plugins/keenthemes";
@@ -77,6 +71,7 @@ import {
   themeLightLogo,
   themeDarkLogo,
 } from "@/core/helpers/config";
+import { useStores } from "@/store";
 
 export default defineComponent({
   name: "theme-layout",
@@ -86,33 +81,31 @@ export default defineComponent({
     KTFooter,
     KTToolbar,
     KTScrollTop,
-    KTCreateApp,
-    KTInviteFriendsModal,
     KTUserMenu,
     KTLoader,
   },
   setup() {
-    const store = useStore();
+    const { authStore, bodyStore, breadcrumbsStore } = useStores();
     const route = useRoute();
     const router = useRouter();
 
     // show page loading
-    store.dispatch(Actions.ADD_BODY_CLASSNAME, "page-loading");
+    bodyStore.addBodyClassName("page-loading");
 
     // initialize html element classes
     HtmlClass.init();
 
     const pageTitle = computed(() => {
-      return store.getters.pageTitle;
+      return breadcrumbsStore.pageTitle;
     });
 
     const breadcrumbs = computed(() => {
-      return store.getters.pageBreadcrumbPath;
+      return breadcrumbsStore.pageBreadcrumbPath;
     });
 
     onMounted(() => {
       //check if current user is authenticated
-      if (!store.getters.isUserAuthenticated) {
+      if (!authStore.isUserAuthenticated) {
         router.push({ name: "sign-in" });
       }
 
@@ -123,7 +116,7 @@ export default defineComponent({
       // Simulate the delay page loading
       setTimeout(() => {
         // Remove page loader after some time
-        store.dispatch(Actions.REMOVE_BODY_CLASSNAME, "page-loading");
+        bodyStore.removeBodyClassName("page-loading");
       }, 500);
     });
 
@@ -133,7 +126,7 @@ export default defineComponent({
         MenuComponent.hideDropdowns(undefined);
 
         // check if current user is authenticated
-        if (!store.getters.isUserAuthenticated) {
+        if (!authStore.isUserAuthenticated) {
           router.push({ name: "sign-in" });
         }
 

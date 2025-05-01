@@ -11,7 +11,7 @@ export interface User {
 }
 
 export interface UserAuthInfo {
-  errors: unknown;
+  errors: Record<string, string>;
   user: User;
   isAuthenticated: boolean;
 }
@@ -60,11 +60,11 @@ export const useAuthStore = defineStore("auth", {
     purgeAuth() {
       this.isAuthenticated = false;
       this.user = {} as User;
-      this.errors = [];
+      this.errors = {};
       JwtService.destroyToken();
     },
 
-    async login(credentials: Record<string, any>) {
+    async login(credentials: Record<string, string>) {
       try {
         const { data } = await ApiService.post("login", credentials);
         this.setAuth(data);
@@ -77,7 +77,7 @@ export const useAuthStore = defineStore("auth", {
       this.purgeAuth();
     },
 
-    async register(credentials: Record<string, any>) {
+    async register(credentials: Record<string, string>) {
       try {
         const { data } = await ApiService.post("register", credentials);
         this.setAuth(data);

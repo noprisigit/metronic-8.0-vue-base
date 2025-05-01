@@ -50,7 +50,7 @@ const config: LayoutConfigTypes = {
     hoverable: true,
   },
   content: {
-    width: "fixed",
+    width: "fluid",
   },
   footer: {
     width: "fluid",

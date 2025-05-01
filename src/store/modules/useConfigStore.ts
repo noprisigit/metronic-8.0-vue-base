@@ -12,7 +12,9 @@ export const useLayoutConfigStore = defineStore("layoutConfig", {
 
   getters: {
     layoutConfig: (state) => {
-      return (path: string, defaultValue: unknown = null): any => {
+      return (path?: string, defaultValue: unknown = null): any => {
+        if (!path) return state.config;
+
         return objectPath.get(state.config, path, defaultValue);
       };
     },

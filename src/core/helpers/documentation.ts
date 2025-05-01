@@ -1,5 +1,5 @@
 import { computed } from "vue";
-import store from "@/store/index";
+import { useLayoutConfigStore } from "@/store/modules/useConfigStore";
 import ClipboardJS from "clipboard";
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
@@ -8,7 +8,7 @@ import ClipboardJS from "clipboard";
  * @returns {string}
  */
 export const themeName = computed(() => {
-  return store.getters.layoutConfig("themeName");
+  return useLayoutConfigStore().layoutConfig("themeName");
 });
 
 /**
@@ -16,7 +16,7 @@ export const themeName = computed(() => {
  * @returns {string}
  */
 export const version = computed(() => {
-  return store.getters.layoutConfig("themeVersion");
+  return useLayoutConfigStore().layoutConfig("themeVersion");
 });
 
 /**
@@ -24,7 +24,7 @@ export const version = computed(() => {
  * @returns {string}
  */
 export const demo = computed(() => {
-  return store.getters.layoutConfig("demo");
+  return useLayoutConfigStore().layoutConfig("demo");
 });
 
 //code copy button initialization
