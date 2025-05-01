@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  vue-prod:
+    container_name: lamemba-lexa-4-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
