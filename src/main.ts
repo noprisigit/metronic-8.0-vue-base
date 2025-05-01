@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import App from "./App.vue";
 
 /*
@@ -18,6 +19,7 @@ import "@/core/plugins/prismjs";
 import { InstallOptions } from "element-plus/lib/utils/config";
 const app = createApp(App);
 
+app.use(createPinia());
 app.use(store);
 app.use(router);
 app.use(ElementPlus, {} as InstallOptions);
