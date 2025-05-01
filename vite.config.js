@@ -14,4 +14,17 @@ export default defineConfig({
     },
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler", // or "modern"
+        silenceDeprecations: [
+          "mixed-decls",
+          "color-functions",
+          "global-builtin",
+          "import",
+        ],
+      },
+    },
+  },
 });

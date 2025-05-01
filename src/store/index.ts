@@ -1,20 +1,13 @@
-import { createStore } from "vuex";
-import { config } from "vuex-module-decorators";
+import { useAuthStore } from "./modules/useAuthStore";
+import { useBodyStore } from "./modules/useBodyStore";
+import { useBreadcrumbsStore } from "./modules/useBreadcrumbsStore";
+import { useLayoutConfigStore } from "./modules/useConfigStore";
 
-import AuthModule from "@/store/modules/AuthModule";
-import BodyModule from "@/store/modules/BodyModule";
-import BreadcrumbsModule from "@/store/modules/BreadcrumbsModule";
-import ConfigModule from "@/store/modules/ConfigModule";
-
-config.rawError = true;
-
-const store = createStore({
-  modules: {
-    AuthModule,
-    BodyModule,
-    BreadcrumbsModule,
-    ConfigModule,
-  },
-});
-
-export default store;
+export function useStores() {
+  return {
+    authStore: useAuthStore(),
+    bodyStore: useBodyStore(),
+    breadcrumbsStore: useBreadcrumbsStore(),
+    configStore: useLayoutConfigStore(),
+  };
+}

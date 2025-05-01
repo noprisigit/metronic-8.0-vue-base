@@ -45,14 +45,7 @@
         >
           <!--begin::Timeline items-->
           <div class="timeline">
-            <Item1></Item1>
-            <Item2></Item2>
-            <Item3></Item3>
-            <Item4></Item4>
-            <Item5></Item5>
-            <Item6></Item6>
-            <Item7></Item7>
-            <Item8></Item8>
+            
           </div>
           <!--end::Timeline items-->
         </div>
@@ -76,26 +69,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Item1 from "@/layout/header/partials/activity-timeline/Item1.vue";
-import Item2 from "@/layout/header/partials/activity-timeline/Item2.vue";
-import Item3 from "@/layout/header/partials/activity-timeline/Item3.vue";
-import Item4 from "@/layout/header/partials/activity-timeline/Item4.vue";
-import Item5 from "@/layout/header/partials/activity-timeline/Item5.vue";
-import Item6 from "@/layout/header/partials/activity-timeline/Item6.vue";
-import Item7 from "@/layout/header/partials/activity-timeline/Item7.vue";
-import Item8 from "@/layout/header/partials/activity-timeline/Item8.vue";
 
 export default defineComponent({
   name: "kt-activity-drawer",
-  components: {
-    Item1,
-    Item2,
-    Item3,
-    Item4,
-    Item5,
-    Item6,
-    Item7,
-    Item8,
-  },
 });
 </script>

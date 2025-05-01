@@ -1,5 +1,4 @@
-import store from "@/store";
-import { Actions } from "@/store/enums/StoreEnums";
+import { useBreadcrumbsStore } from "@/store/modules/useBreadcrumbsStore";
 
 /**
  * Sets current page breadcrumbs
@@ -10,7 +9,7 @@ export const setCurrentPageBreadcrumbs = (
   pageTitle: string,
   breadcrumbs: Array<string>
 ): void => {
-  store.dispatch(Actions.SET_BREADCRUMB_ACTION, {
+  useBreadcrumbsStore().setBreadcrumb({
     title: pageTitle,
     pageBreadcrumbPath: breadcrumbs,
   });
@@ -21,7 +20,8 @@ export const setCurrentPageBreadcrumbs = (
  * @param {string} title Current page title name
  */
 export const setCurrentPageTitle = (title: string): void => {
-  store.dispatch(Actions.SET_BREADCRUMB_ACTION, {
+  useBreadcrumbsStore().setBreadcrumb({
     title: title,
+    pageBreadcrumbPath: [],
   });
 };

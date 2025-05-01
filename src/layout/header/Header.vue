@@ -67,7 +67,7 @@ import {
   headerLeft,
   asideDisplay,
 } from "@/core/helpers/config";
-import { useStore } from "vuex";
+import { useBreadcrumbsStore } from "@/store/modules/useBreadcrumbsStore";
 
 export default defineComponent({
   name: "KTHeader",
@@ -78,10 +78,10 @@ export default defineComponent({
     KTTopbar,
   },
   setup() {
-    const store = useStore();
+    const store = useBreadcrumbsStore();
 
     const pageTitle = computed(() => {
-      return store.getters.pageTitle;
+      return store.pageTitle;
     });
 
     return {

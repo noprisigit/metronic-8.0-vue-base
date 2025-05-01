@@ -125,7 +125,7 @@
                 class="form-check-input w-30px h-20px"
                 type="checkbox"
                 value="1"
-                checked="checked"
+                :checked="true"
                 name="notifications"
               />
               <span class="form-check-label text-muted fs-7">
@@ -301,9 +301,8 @@
 <script lang="ts">
 import { defineComponent, computed } from "vue";
 import { useI18n } from "vue-i18n";
-import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-import { Actions } from "@/store/enums/StoreEnums";
+import { useAuthStore } from "@/store/modules/useAuthStore";
 
 export default defineComponent({
   name: "kt-user-menu",
@@ -311,7 +310,6 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     const i18n = useI18n();
-    const store = useStore();
 
     i18n.locale.value = localStorage.getItem("lang")
       ? (localStorage.getItem("lang") as string)
@@ -340,10 +338,10 @@ export default defineComponent({
       },
     };
 
-    const signOut = () => {
-      store
-        .dispatch(Actions.LOGOUT)
-        .then(() => router.push({ name: "sign-in" }));
+    const signOut = async () => {
+      const authStore = useAuthStore();
+      await authStore.logout();
+      router.push({ name: "sign-in" });
     };
 
     const setLang = (lang) => {

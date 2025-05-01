@@ -4,21 +4,20 @@
 
 <script lang="ts">
 import { defineComponent, nextTick, onMounted } from "vue";
-import { useStore } from "vuex";
-import { Mutations } from "@/store/enums/StoreEnums";
 import { initializeComponents } from "@/core/plugins/keenthemes";
+import { useLayoutConfigStore } from "./store/modules/useConfigStore";
 
 export default defineComponent({
   name: "app",
   setup() {
-    const store = useStore();
+    const layoutConfigStore = useLayoutConfigStore();
 
     onMounted(() => {
       /**
        * this is to override the layout config using saved data from localStorage
        * remove this to use config only from static config (@/core/config/DefaultLayoutConfig.ts)
        */
-      store.commit(Mutations.OVERRIDE_LAYOUT_CONFIG);
+      layoutConfigStore.overrideLayoutConfig();
 
       nextTick(() => {
         initializeComponents();
