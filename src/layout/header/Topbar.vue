@@ -59,7 +59,7 @@
         data-kt-menu-placement="bottom-end"
         data-kt-menu-flip="bottom"
       >
-        <img src="/media/avatars/300-1.jpg" alt="metronic" />
+        <img src="https://ui-avatars.com/api/?name=John+Doe" alt="metronic" />
       </div>
       <KTUserMenu></KTUserMenu>
       <!--end::Menu-->

@@ -14,6 +14,9 @@ const routes: Array<RouteRecordRaw> = [
         path: "/dashboard",
         name: "dashboard",
         component: () => import("@/views/Dashboard.vue"),
+        meta: {
+          title: 'Dashboard'
+        }
       },
     ],
   },
@@ -45,7 +48,10 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(() => {
+router.beforeEach((to) => {
+  const defaultTitle = `${import.meta.env.VITE_NAME} | ${import.meta.env.VITE_AUTHOR}`;
+  document.title = `${defaultTitle} - ${to.meta.title}` || defaultTitle;
+
   const layoutStore = useLayoutConfigStore();
   const authStore = useAuthStore();
 

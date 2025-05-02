@@ -9,7 +9,7 @@
       <div class="menu-content d-flex align-items-center px-3">
         <!--begin::Avatar-->
         <div class="symbol symbol-50px me-5">
-          <img alt="Logo" src="/media/avatars/300-1.jpg" />
+          <img alt="Logo" src="https://ui-avatars.com/api/?name=John+Doe" />
         </div>
         <!--end::Avatar-->
 
@@ -178,7 +178,7 @@
       <!--begin::Menu sub-->
       <div class="menu-sub menu-sub-dropdown w-175px py-4">
         <!--begin::Menu item-->
-        <div class="menu-item px-3">
+        <!-- <div class="menu-item px-3">
           <a
             @click="setLang('en')"
             href="#"
@@ -194,11 +194,11 @@
             </span>
             English
           </a>
-        </div>
+        </div> -->
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
-        <div class="menu-item px-3">
+        <!-- <div class="menu-item px-3">
           <a
             @click="setLang('es')"
             href="#"
@@ -214,11 +214,11 @@
             </span>
             Spanish
           </a>
-        </div>
+        </div> -->
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
-        <div class="menu-item px-3">
+        <!-- <div class="menu-item px-3">
           <a
             @click="setLang('de')"
             href="#"
@@ -234,11 +234,11 @@
             </span>
             German
           </a>
-        </div>
+        </div> -->
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
-        <div class="menu-item px-3">
+        <!-- <div class="menu-item px-3">
           <a
             @click="setLang('ja')"
             href="#"
@@ -254,11 +254,11 @@
             </span>
             Japanese
           </a>
-        </div>
+        </div> -->
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
-        <div class="menu-item px-3">
+        <!-- <div class="menu-item px-3">
           <a
             @click="setLang('fr')"
             href="#"
@@ -274,7 +274,7 @@
             </span>
             French
           </a>
-        </div>
+        </div> -->
         <!--end::Menu item-->
       </div>
       <!--end::Menu sub-->

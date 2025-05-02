@@ -8,15 +8,15 @@ const config: LayoutConfigTypes = {
     type: "default",
     primaryColor: "#009EF7",
     logo: {
-      dark: "/media/logos/logo-1-dark.svg",
-      light: "/media/logos/logo-1.svg",
+      dark: "media/logos/logo-lamemba2.svg",
+      light: "media/logos/logo-lamemba2.svg",
     },
   },
   illustrations: {
     set: "dozzy-1",
   },
   loader: {
-    logo: "media/logos/logo-1-dark.svg",
+    logo: "media/logos/logo-lamemba.svg",
     display: true,
     type: "spinner-logo",
   },
