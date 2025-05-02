@@ -19,7 +19,7 @@
           target="_blank"
           class="text-gray-800 text-hover-primary"
         >
-          Keenthemes
+          {{ author }}
         </a>
       </div>
       <!--end::Copyright-->
@@ -47,8 +47,10 @@ export default defineComponent({
   name: "KTFooter",
   setup() {
     const version: string = import.meta.env.VITE_VERSION;
+    const author: string = import.meta.env.VITE_AUTHOR;
 
     return {
+      author,
       footerWidthFluid,
       version,
     };
